@@ -50,7 +50,7 @@ function preexec_invoke_cmd () {
     # and have prompt_prefix set a global variable that tells precmd not to
     # output anything and have prompt_suffix reset that variable.
     # Unfortunately, command substitutions run in subshells and can't
-    # communicate to the outside world. 
+    # communicate to the outside world.
     # Instead, we have this workaround. We save the original value of PS1 in
     # $orig_ps1. Then each time this funciton is run (it's called from
     # PROMPT_COMMAND just before the prompt is shown) it will change PS1 to a
@@ -146,7 +146,7 @@ function preexec() {
 }
 
 function remotehost_and_currentdir() {
-  printf "\033]1337;RemoteHost=%s@%s\007" "$USER" $(hostname -f)
+  printf "\033]1337;RemoteHost=%s@%s\007" "$USER" "$(hostname -f)"
   printf "\033]1337;CurrentDir=%s\007" "$PWD"
 }
 
@@ -164,4 +164,3 @@ preexec_install
 
 # This is necessary so the first command line will have a hostname and current directory.
 remotehost_and_currentdir
-
